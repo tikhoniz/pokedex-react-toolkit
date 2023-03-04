@@ -3,7 +3,7 @@
 Requirements
 You have to meet the following requirements:
 
-1. 'ok' Source code should be open sourced on GitHub
+1. Source code should be open sourced on GitHub
 2. The design of the app is not important, but the overall user experience and usability of the application should be good. You can use the existing UI libraries like material ui or ant.design
 3. Application should be responsive (look good both on mobile and desktop)
 4. Code should be formatted by prettier and linted by eslint.

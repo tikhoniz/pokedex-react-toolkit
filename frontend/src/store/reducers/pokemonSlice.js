@@ -7,6 +7,7 @@ function isRejectedAction(action) {
 
 const initialState = {
 	pokemons: [],
+	countPokemons:0,
 	isLoading: false,
 	error: null,
 };
@@ -19,7 +20,8 @@ export const pokemonSlice = createSlice({
 		builder
 			.addCase(getPokemonList.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.pokemons = action.payload;
+				state.pokemons = action.payload.pokemonList;
+				state.countPokemons = action.payload.count;
 			})
 			.addCase(getPokemonList.pending, (state, action) => {
 				state.isLoading = true;

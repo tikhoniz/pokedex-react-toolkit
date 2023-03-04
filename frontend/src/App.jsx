@@ -1,18 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getPokemonList } from "./store/actionsCreators/pokemonActions";
+import { Container } from "@mui/material";
+import React from "react";
+// components
+import Pokemons from "./components/Pokemons";
 
 const App = () => {
-	const dispatch = useDispatch();
-	const { pokemons } = useSelector((state) => state.pokemonReducer);
-
-	useEffect(() => {
-		dispatch(getPokemonList({ limit: 50, offset: 0 }));
-	}, []);
-
-	console.log(pokemons);
-
-	return <div>Pokemons</div>;
+	return (
+		<Container maxWidth="xl">
+			<Pokemons />
+		</Container>
+	);
 };
 
 export default App;
