@@ -3,6 +3,7 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 import connectDB from "./db/mongo.js";
+import pokemonRoutes from "./routes/pokemonRoutes.js";
 
 const app = express();
 
@@ -12,6 +13,9 @@ connectDB();
 const PORT = process.env.PORT;
 
 app.use(cors({ credentials: true, origin: true }));
+
+// routs
+app.use("/api/pokemons", pokemonRoutes);
 
 app.listen(PORT, () => {
 	console.log(
