@@ -13,13 +13,15 @@ const GridStyle = styled(Box)({
 const Pokemons = ({ items }) => {
 	const { user } = useSelector((state) => state.userReducer);
 
+	console.log("items", items);
+
 	return (
 		<GridStyle>
 			{items.map((item) => {
-				const isFavorite = user?.favorites?.includes(String(item.id));
+				const isFavorite = user?.favorites?.includes(String(item?.id));
 				return (
 					<PokemonCard
-						key={item.id}
+						key={item?.id}
 						item={item}
 						isFavorite={isFavorite}
 						userId={user?.id}

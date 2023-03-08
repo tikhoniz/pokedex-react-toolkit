@@ -30,7 +30,7 @@ const RootStyle = styled(Card)(({ ownerState }) => ({
 }));
 
 const PokemonCard = ({ item, userId, isFavorite }) => {
-	const { id, name, avatar, types } = item;
+	const { id, name, avatar, types } = item || {};
 	const { setPokemon } = pokemonSliceActions;
 	const dispatch = useDispatch();
 

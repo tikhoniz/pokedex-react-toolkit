@@ -50,11 +50,11 @@ const App = () => {
 				<SelectComponent />
 				<Tags />
 				{error && <h2>{error.message}</h2>}
-				{/*{isLoading && pokemons ? (
+				{isLoading && pokemons ? (
 					<LoadingScreen />
 				) : (
 					<Pokemons items={filteredPokemons(pokemons, nameFilter, tags)} />
-				)}*/}
+				)}
 				<Footer />
 			</Container>
 			<ModalBasic
