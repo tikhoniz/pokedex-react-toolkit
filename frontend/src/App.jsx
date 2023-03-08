@@ -55,7 +55,7 @@ const App = () => {
 				) : (
 					<Pokemons items={filteredPokemons(pokemons, nameFilter, tags)} />
 				)}*/}
-				{/*<Footer />*/}
+				<Footer />
 			</Container>
 			<ModalBasic
 				open={!!pokemon}
