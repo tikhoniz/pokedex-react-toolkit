@@ -57,13 +57,13 @@ const App = () => {
 				)}*/}
 				{/*<Footer />*/}
 			</Container>
-			{/*<ModalBasic
+			<ModalBasic
 				open={!!pokemon}
 				onClose={() => dispatch(setPokemon(null))}
 				sx={{ borderRadius: "16px" }}
 			>
 				<PokemonInfo pokemon={pokemon} />
-			</ModalBasic>*/}
+			</ModalBasic>
 		</>
 	);
 };
