@@ -46,9 +46,9 @@ const App = () => {
 	return (
 		<>
 			<Container maxWidth="xl" sx={{ pt: 16, pb: 16 }}>
-				{/*<Header />
+				<Header />
 				<SelectComponent />
-				<Tags />*/}
+				<Tags />
 				{error && <h2>{error.message}</h2>}
 				{/*{isLoading && pokemons ? (
 					<LoadingScreen />
