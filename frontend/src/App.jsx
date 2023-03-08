@@ -21,9 +21,9 @@ const App = () => {
 	const dispatch = useDispatch();
 	const { setPokemon } = pokemonSliceActions;
 
-	useEffect(() => {
-		dispatch(checkAuth());
-	}, []);
+	//useEffect(() => {
+	//	dispatch(checkAuth());
+	//}, []);
 
 	const filteredPokemons = (array, nameFilter, tags) => {
 		let filtered = array;
@@ -46,24 +46,24 @@ const App = () => {
 	return (
 		<>
 			<Container maxWidth="xl" sx={{ pt: 16, pb: 16 }}>
-				<Header />
+				{/*<Header />
 				<SelectComponent />
-				<Tags />
+				<Tags />*/}
 				{error && <h2>{error.message}</h2>}
-				{isLoading && pokemons ? (
+				{/*{isLoading && pokemons ? (
 					<LoadingScreen />
 				) : (
 					<Pokemons items={filteredPokemons(pokemons, nameFilter, tags)} />
-				)}
-				<Footer />
+				)}*/}
+				{/*<Footer />*/}
 			</Container>
-			<ModalBasic
+			{/*<ModalBasic
 				open={!!pokemon}
 				onClose={() => dispatch(setPokemon(null))}
 				sx={{ borderRadius: "16px" }}
 			>
 				<PokemonInfo pokemon={pokemon} />
-			</ModalBasic>
+			</ModalBasic>*/}
 		</>
 	);
 };
