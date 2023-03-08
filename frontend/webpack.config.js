@@ -7,6 +7,7 @@ const devMode = mode === "development";
 
 module.exports = {
 	mode,
+	target: "web",
 	entry: {
 		bundle: path.resolve(__dirname, "src", "index.js"),
 	},
@@ -24,6 +25,7 @@ module.exports = {
 		filename: devMode ? "[name].[contenthash].js" : "[name].js",
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
+		assetModuleFilename: "assets/[name][ext]",
 	},
 
 	module: {
@@ -42,10 +44,17 @@ module.exports = {
 					},
 				},
 			},
+			{
+				test: /\.(png|svg|jpe?g|webp|gif)$/i,
+				type: "asset/resource",
+			},
 		],
 	},
 	resolve: {
 		extensions: ["*", ".js", ".jsx"],
+		alias: {
+			images: path.resolve(__dirname, "src/assets/"),
+		},
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

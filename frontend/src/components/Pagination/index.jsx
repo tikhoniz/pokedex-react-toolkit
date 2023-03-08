@@ -1,31 +1,42 @@
-import { Pagination} from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getPokemonList } from '../../store/actionsCreators/pokemonActions';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPokemonList } from "../../store/actionsCreators/pokemonActions";
+import { pokemonSliceActions } from "../../store/reducers/pokemonSlice";
+// material
+import { Pagination } from "@mui/material";
 
 const PaginationComponent = () => {
-	const [pageQty, setPageQty] = useState(20);
 	const [page, setPage] = useState(1);
+	const { filterItemByName, clearTags } = pokemonSliceActions;
 
 	const dispatch = useDispatch();
-	const {countPokemons, isLoading } = useSelector((state) => state.pokemonReducer);
+	const { countPokemons, itemPerPage, isLoading } = useSelector(
+		(state) => state.pokemonReducer
+	);
+
+	const changePageHandler = (_, num) => {
+		setPage(num);
+		dispatch(filterItemByName(""));
+		dispatch(clearTags());
+	};
 
 	useEffect(() => {
-		let offset = pageQty * (page - 1);
-		dispatch(getPokemonList({ limit: pageQty, offset }));
-	}, [pageQty, page]);
+		let offset = itemPerPage * (page - 1);
+		dispatch(getPokemonList({ limit: itemPerPage, offset }));
+	}, [itemPerPage, page]);
 
 	return (
 		<Pagination
-		showFirstButton
-		showLastButton
-		count={Math.ceil(countPokemons/pageQty)}
-		page={page}
-		onChange={(_, num) => setPage(num)}
-		color="primary"
-		disabled={isLoading}
-	/> 
-	)
-}
+			showFirstButton
+			showLastButton
+			count={Math.ceil(countPokemons / itemPerPage)}
+			page={page}
+			onChange={changePageHandler}
+			color="primary"
+			disabled={isLoading}
+			size="large"
+		/>
+	);
+};
 
-export default PaginationComponent
+export default PaginationComponent;

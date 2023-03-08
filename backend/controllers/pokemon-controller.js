@@ -8,10 +8,9 @@ export const getPokemonsByQuery = async (req, res, next) => {
 	try {
 		const results = await fetch(
 			`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-			//`https://pokeapi.co/api/v2/pokemon?offset=30`
 		)
 			.then(async (response) => await response.json())
-			.then(data=>{
+			.then((data) => {
 				count = data.count;
 				return data;
 			})
@@ -30,7 +29,7 @@ export const getPokemonsByQuery = async (req, res, next) => {
 			return new PokemonDto(elem);
 		});
 
-		return res.json({pokemonList, count});
+		return res.json({ pokemonList, count });
 	} catch (err) {
 		const error = new Error("Something went wrong");
 		return next(error);

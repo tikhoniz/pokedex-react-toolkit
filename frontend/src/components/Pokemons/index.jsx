@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
 // material
 import { Box, styled } from "@mui/material";
+import { useSelector } from "react-redux";
 // components
 import PokemonCard from "./PokemonCard";
-import Pagination from "../Pagination";
 
 const GridStyle = styled(Box)({
 	display: "grid",
@@ -11,18 +10,23 @@ const GridStyle = styled(Box)({
 	gridGap: "15px 15px",
 });
 
-const Pokemons = () => {
-	const { pokemons, isLoading } = useSelector((state) => state.pokemonReducer);
-	return (
-		<>
-			<GridStyle>
-				{pokemons.map((p) => (
-					<PokemonCard key={p.id} item={p} />
-				))}
-			</GridStyle>
+const Pokemons = ({ items }) => {
+	const { user } = useSelector((state) => state.userReducer);
 
-			<Pagination />
-		</>
+	return (
+		<GridStyle>
+			{items.map((item) => {
+				const isFavorite = user?.favorites?.includes(String(item.id));
+				return (
+					<PokemonCard
+						key={item.id}
+						item={item}
+						isFavorite={isFavorite}
+						userId={user?.id}
+					/>
+				);
+			})}
+		</GridStyle>
 	);
 };
 
