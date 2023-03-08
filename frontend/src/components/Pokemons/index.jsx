@@ -12,9 +12,6 @@ const GridStyle = styled(Box)({
 
 const Pokemons = ({ items }) => {
 	const { user } = useSelector((state) => state.userReducer);
-
-	console.log("items", items);
-
 	return (
 		<GridStyle>
 			{items.map((item) => {

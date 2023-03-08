@@ -21,24 +21,26 @@ const App = () => {
 	const dispatch = useDispatch();
 	const { setPokemon } = pokemonSliceActions;
 
-	//useEffect(() => {
-	//	dispatch(checkAuth());
-	//}, []);
+	useEffect(() => {
+		dispatch(checkAuth());
+	}, []);
 
 	const filteredPokemons = (array, nameFilter, tags) => {
 		let filtered = array;
 
-		if (tags.length > 0) {
-			filtered = array.filter((item) =>
-				item.types.some((type) => tags.some((tag) => tag === type))
-			);
-		}
+		//if (tags.length > 0) {
+		//	filtered = array.filter((item) =>
+		//		item.types.some((type) => tags.some((tag) => tag === type))
+		//	);
+		//}
 
-		if (nameFilter) {
-			filtered = array.filter((item) =>
-				item.name.toLowerCase().startsWith(nameFilter.toLowerCase())
-			);
-		}
+		//if (nameFilter) {
+		//	filtered = array.filter((item) =>
+		//		item.name.toLowerCase().startsWith(nameFilter.toLowerCase())
+		//	);
+		//}
+
+		console.log("filtered", filtered);
 
 		return filtered || [];
 	};
