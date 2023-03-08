@@ -41,9 +41,8 @@ export const authSocial = createAsyncThunk(
 			return response.data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue({
-				status: error.response?.status || 500,
 				message:
-					error.response?.data?.message ||
+					error.message ||
 					"На сервере произошла внутренняя непредвиденная ошибка",
 			});
 		}

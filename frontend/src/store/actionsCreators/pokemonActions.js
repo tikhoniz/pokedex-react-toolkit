@@ -8,12 +8,10 @@ export const getPokemonList = createAsyncThunk(
 	async ({ limit, offset }, thunkAPI) => {
 		try {
 			const response = await axios.get(`${api}/pokemons/${limit}&${offset}`);
-
 			return response.data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue({
-				status: error.response?.status,
-				message: error.response?.data?.message,
+				message: error.message,
 			});
 		}
 	}

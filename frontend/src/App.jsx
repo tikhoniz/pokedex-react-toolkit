@@ -49,7 +49,8 @@ const App = () => {
 				<Header />
 				<SelectComponent />
 				<Tags />
-				{isLoading ? (
+				{error && <h2>{error.message}</h2>}
+				{isLoading && pokemons ? (
 					<LoadingScreen />
 				) : (
 					<Pokemons items={filteredPokemons(pokemons, nameFilter, tags)} />

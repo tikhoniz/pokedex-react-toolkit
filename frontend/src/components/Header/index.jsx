@@ -40,7 +40,7 @@ const Header = () => {
 				</Typography>
 
 				<FilterByName />
-				{/*{user ? (
+				{user ? (
 					<Stack alignItems="center" sx={{ minWidth: 130 }}>
 						<Typography variant="h6" sx={{ mb: 1 }}>
 							Hi, {user.name}!
@@ -55,7 +55,7 @@ const Header = () => {
 					</Stack>
 				) : (
 					<FacebookLoginButton />
-				)}*/}
+				)}
 			</ToolbarStyle>
 		</AppBar>
 	);
