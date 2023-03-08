@@ -28,19 +28,17 @@ const App = () => {
 	const filteredPokemons = (array, nameFilter, tags) => {
 		let filtered = array;
 
-		//if (tags.length > 0) {
-		//	filtered = array.filter((item) =>
-		//		item.types.some((type) => tags.some((tag) => tag === type))
-		//	);
-		//}
+		if (tags.length > 0 && filtered) {
+			filtered = array.filter((item) =>
+				item.types.some((type) => tags.some((tag) => tag === type))
+			);
+		}
 
-		//if (nameFilter) {
-		//	filtered = array.filter((item) =>
-		//		item.name.toLowerCase().startsWith(nameFilter.toLowerCase())
-		//	);
-		//}
-
-		console.log("filtered", filtered);
+		if (nameFilter && filtered) {
+			filtered = array.filter((item) =>
+				item.name.toLowerCase().startsWith(nameFilter.toLowerCase())
+			);
+		}
 
 		return filtered || [];
 	};
