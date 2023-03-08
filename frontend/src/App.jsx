@@ -40,7 +40,7 @@ const App = () => {
 			);
 		}
 
-		return filtered;
+		return filtered || [];
 	};
 
 	return (
