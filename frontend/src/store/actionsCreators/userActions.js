@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 
-const api = process.env.REACT_APP_API_URL;
+const api = "https://pokedex-react-api-five.vercel.app";
 
 export const checkAuth = createAsyncThunk(
 	"user/checkAuth",
