@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const api = process.env.REACT_APP_VERCEL_URL;
-console.log('process.env.REACT_APP_VERCEL_URL', process.env.REACT_APP_VERCEL_URL);
+const api = process.env.REACT_APP_API_URL;
+console.log("process.env.v", process.env.REACT_APP_API_URL);
 export const getPokemonList = createAsyncThunk(
 	"user/getPokemons",
 	async ({ limit, offset }, thunkAPI) => {
