@@ -44,10 +44,6 @@ const ButtonStyle = styled("button")({
 const FacebookLoginButton = () => {
 	const dispatch = useDispatch();
 
-	console.log(
-		"process.env.REACT_APP_FB_APP_ID",
-		process.env.REACT_APP_FB_APP_ID
-	);
 	const onLoginSuccess = (profile) => {
 		const userObject = {
 			email: profile.email,
@@ -63,7 +59,7 @@ const FacebookLoginButton = () => {
 				onLoginSuccess(data);
 			}}
 			onReject={(err) => {
-				console.log("LoginSocialFacebook err", err);
+				console.log(err);
 			}}
 		>
 			<ButtonStyle>Log In</ButtonStyle>

@@ -19,8 +19,7 @@ const initialState = {
 export const userSlice = createSlice({
 	name: "user",
 	initialState,
-	reducers: {
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
 			.addCase(checkAuth.fulfilled, (state, action) => {
@@ -38,7 +37,6 @@ export const userSlice = createSlice({
 				state.isLoading = true;
 			})
 			.addCase(setFavorite.fulfilled, (state, action) => {
-				console.log(action);
 				state.isLoading = false;
 				state.user = action.payload;
 			})
