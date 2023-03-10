@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { pokemonSliceActions } from "./store/reducers/pokemonSlice";
 import { checkAuth } from "./store/actionsCreators/userActions";
