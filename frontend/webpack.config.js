@@ -61,6 +61,8 @@ module.exports = {
 			filename: "index.html",
 			template: path.resolve(__dirname, "public", "index.html"),
 		}),
-		new Dotenv(),
+		new Dotenv({
+			systemvars: true,
+		}),
 	],
 };

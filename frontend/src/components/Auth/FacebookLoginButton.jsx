@@ -54,7 +54,7 @@ const FacebookLoginButton = () => {
 
 	return (
 		<LoginSocialFacebook
-			appId={"867037747700138"}
+			appId={process.env.REACT_APP_FB_APP_ID}
 			onResolve={({ data }) => {
 				onLoginSuccess(data);
 			}}

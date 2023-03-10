@@ -7,12 +7,13 @@ import { Container } from "@mui/material";
 // components
 import Tags from "./components/Tags";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Pokemons from "./components/Pokemons";
+import SelectComponent from "./components/Select";
 import PokemonInfo from "./components/PokemonInfo";
 import ModalBasic from "./components/shared/ModalBasic";
 import LoadingScreen from "./components/shared/LoadingScreen";
-import SelectComponent from "./components/Select";
+// lazy
+const Header = lazy(() => import("./components/Header"));
 
 const App = () => {
 	const { pokemon, pokemons, nameFilter, tags, isLoading, error } = useSelector(

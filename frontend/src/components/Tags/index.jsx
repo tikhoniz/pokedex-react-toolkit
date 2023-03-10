@@ -1,8 +1,12 @@
-import { List, ListItem,Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+// store
 import { pokemonSliceActions } from "../../store/reducers/pokemonSlice";
+// utils
 import { COLORS } from "../../utils/getColorTypes";
+// material
+import { List, ListItem, Typography } from "@mui/material";
+// components
 import Tag from "./Tag";
 
 const Tags = () => {
